@@ -168,10 +168,11 @@ else
 	# annotated or signed tagged state (as git describe only
 	# looks at signed or annotated tags - git tag -a/-s) and
 	# LOCALVERSION= is not specified
-	if test "${LOCALVERSION+set}" != "set"; then
-		scm=$(scm_version --short)
-		res="$res${scm:++}"
-	fi
+	# Removed by giannoug (15/12/2013)	
+	#if test "${LOCALVERSION+set}" != "set"; then
+	#	scm=$(scm_version --short)
+	#	res="$res${scm:++}"
+	#fi
 fi
 
 echo "$res"
