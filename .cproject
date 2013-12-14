@@ -1,0 +1,335 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<?fileVersion 4.0.0?>
+
+<cproject storage_type_id="org.eclipse.cdt.core.XmlProjectDescriptionStorage">
+	<storageModule moduleId="org.eclipse.cdt.core.settings">
+		<cconfiguration id="cdt.managedbuild.toolchain.gnu.cross.base.1467840092">
+			<storageModule buildSystemId="org.eclipse.cdt.managedbuilder.core.configurationDataProvider" id="cdt.managedbuild.toolchain.gnu.cross.base.1467840092" moduleId="org.eclipse.cdt.core.settings" name="meson6">
+				<externalSettings/>
+				<extensions>
+					<extension id="org.eclipse.cdt.core.ELF" point="org.eclipse.cdt.core.BinaryParser"/>
+					<extension id="org.eclipse.cdt.core.GmakeErrorParser" point="org.eclipse.cdt.core.ErrorParser"/>
+					<extension id="org.eclipse.cdt.core.CWDLocator" point="org.eclipse.cdt.core.ErrorParser"/>
+					<extension id="org.eclipse.cdt.core.GCCErrorParser" point="org.eclipse.cdt.core.ErrorParser"/>
+					<extension id="org.eclipse.cdt.core.GASErrorParser" point="org.eclipse.cdt.core.ErrorParser"/>
+					<extension id="org.eclipse.cdt.core.GLDErrorParser" point="org.eclipse.cdt.core.ErrorParser"/>
+				</extensions>
+			</storageModule>
+			<storageModule moduleId="cdtBuildSystem" version="4.0.0">
+				<configuration artifactName="${ProjName}" buildProperties="" description="meson6 default config" id="cdt.managedbuild.toolchain.gnu.cross.base.1467840092" name="meson6" parent="org.eclipse.cdt.build.core.emptycfg">
+					<folderInfo id="cdt.managedbuild.toolchain.gnu.cross.base.1467840092.1784820291" name="/" resourcePath="">
+						<toolChain id="cdt.managedbuild.toolchain.gnu.cross.base.1534870871" name="cdt.managedbuild.toolchain.gnu.cross.base" superClass="cdt.managedbuild.toolchain.gnu.cross.base">
+							<option id="cdt.managedbuild.option.gnu.cross.prefix.560315001" name="Prefix" superClass="cdt.managedbuild.option.gnu.cross.prefix"/>
+							<option id="cdt.managedbuild.option.gnu.cross.path.181713222" name="Path" superClass="cdt.managedbuild.option.gnu.cross.path"/>
+							<targetPlatform archList="all" binaryParser="org.eclipse.cdt.core.ELF" id="cdt.managedbuild.targetPlatform.gnu.cross.1368818270" isAbstract="false" osList="all" superClass="cdt.managedbuild.targetPlatform.gnu.cross"/>
+							<builder arguments="-f .eclipse.mk" command="make" id="cdt.managedbuild.builder.gnu.cross.959766580" incrementalBuildTarget="eclipse_default" keepEnvironmentInBuildfile="false" managedBuildOn="false" name="Gnu Make Builder" parallelBuildOn="true" parallelizationNumber="-1" superClass="cdt.managedbuild.builder.gnu.cross"/>
+							<tool id="cdt.managedbuild.tool.gnu.cross.c.compiler.1696458618" name="Cross GCC Compiler" superClass="cdt.managedbuild.tool.gnu.cross.c.compiler">
+								<inputType id="cdt.managedbuild.tool.gnu.c.compiler.input.136613430" superClass="cdt.managedbuild.tool.gnu.c.compiler.input"/>
+							</tool>
+							<tool id="cdt.managedbuild.tool.gnu.cross.cpp.compiler.719291756" name="Cross G++ Compiler" superClass="cdt.managedbuild.tool.gnu.cross.cpp.compiler"/>
+							<tool id="cdt.managedbuild.tool.gnu.cross.c.linker.818737703" name="Cross GCC Linker" superClass="cdt.managedbuild.tool.gnu.cross.c.linker">
+								<inputType id="cdt.managedbuild.tool.gnu.c.linker.input.1838847688" superClass="cdt.managedbuild.tool.gnu.c.linker.input">
+									<additionalInput kind="additionalinputdependency" paths="$(USER_OBJS)"/>
+									<additionalInput kind="additionalinput" paths="$(LIBS)"/>
+								</inputType>
+							</tool>
+							<tool id="cdt.managedbuild.tool.gnu.cross.cpp.linker.423444963" name="Cross G++ Linker" superClass="cdt.managedbuild.tool.gnu.cross.cpp.linker"/>
+							<tool id="cdt.managedbuild.tool.gnu.cross.archiver.1186231227" name="Cross GCC Archiver" superClass="cdt.managedbuild.tool.gnu.cross.archiver"/>
+							<tool id="cdt.managedbuild.tool.gnu.cross.assembler.48960968" name="Cross GCC Assembler" superClass="cdt.managedbuild.tool.gnu.cross.assembler">
+								<inputType id="cdt.managedbuild.tool.gnu.assembler.input.2136466680" superClass="cdt.managedbuild.tool.gnu.assembler.input"/>
+							</tool>
+						</toolChain>
+					</folderInfo>
+					<sourceEntries>
+						<entry excluding="arch/arm/plat-mxc|arch/arm/plat-iop|arch/arm/plat-versatile|arch/arm/plat-tcc|arch/arm/plat-spear|arch/arm/plat-samsung|arch/arm/plat-s5p|arch/arm/plat-s3c24xx|arch/arm/plat-pxa|arch/arm/plat-orion|arch/arm/plat-omap|arch/arm/plat-nomadik|arch/arm/mach-lpc32xx|arch/arm/mach-loki|arch/arm/mach-l7200|arch/arm/mach-ks8695|arch/arm/mach-kirkwood|arch/arm/mach-ixp4xx|arch/arm/mach-ixp23xx|arch/arm/mach-ixp2000|arch/arm/mach-iop33x|arch/arm/mach-iop32x|arch/arm/mach-iop13xx|arch/arm/mach-integrator|arch/arm/mach-imx|arch/arm/mach-h720x|arch/arm/mach-gemini|arch/arm/mach-footbridge|arch/arm/mach-exynos4|arch/arm/mach-ep93xx|arch/arm/mach-ebsa110|arch/arm/mach-dove|arch/arm/mach-davinci|arch/arm/mach-cns3xxx|arch/arm/mach-clps711x|arch/arm/mach-bcmring|arch/arm/mach-at91|arch/arm/mach-w90x900|arch/arm/mach-vt8500|arch/arm/mach-vexpress|arch/arm/mach-versatile|arch/arm/mach-ux500|arch/arm/mach-u300|arch/arm/mach-tegra|arch/arm/mach-tcc8k|arch/arm/mach-spear6xx|arch/arm/mach-spear3xx|arch/arm/mach-shmobile|arch/arm/mach-shark|arch/arm/mach-sa1100|arch/arm/mach-s5pv210|arch/arm/mach-s5pc100|arch/arm/mach-s5p64x0|arch/arm/mach-s3c64xx|arch/arm/mach-s3c24a0|arch/arm/mach-s3c2443|arch/arm/mach-s3c2440|arch/arm/mach-s3c2416|arch/arm/mach-s3c2412|arch/arm/mach-s3c2410|arch/arm/mach-s3c2400|arch/arm/mach-rpc|arch/arm/mach-realview|arch/arm/mach-pxa|arch/arm/mach-pnx4008|arch/arm/mach-orion5x|arch/arm/mach-omap2|arch/arm/mach-omap1|arch/arm/mach-nuc93x|arch/arm/mach-nomadik|arch/arm/mach-netx|arch/arm/mach-mxs|arch/arm/mach-mx5|arch/arm/mach-mv78xx0|arch/arm/mach-msm|arch/arm/mach-mmp|arch/alpha|arch/unicore32|arch/um|arch/tile|arch/sparc|arch/sh|arch/score|arch/s390|arch/powerpc|arch/parisc|arch/mn10300|arch/mips|arch/microblaze|arch/m68k|arch/m32r|arch/ia64|arch/h8300|arch/frv|arch/cris|arch/blackfin|arch/avr32" flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name=""/>
+					</sourceEntries>
+				</configuration>
+			</storageModule>
+			<storageModule moduleId="org.eclipse.cdt.core.externalSettings"/>
+		</cconfiguration>
+		<cconfiguration id="cdt.managedbuild.toolchain.gnu.cross.base.1467840092.212439101">
+			<storageModule buildSystemId="org.eclipse.cdt.managedbuilder.core.configurationDataProvider" id="cdt.managedbuild.toolchain.gnu.cross.base.1467840092.212439101" moduleId="org.eclipse.cdt.core.settings" name="meson6smp">
+				<externalSettings/>
+				<extensions>
+					<extension id="org.eclipse.cdt.core.ELF" point="org.eclipse.cdt.core.BinaryParser"/>
+					<extension id="org.eclipse.cdt.core.GmakeErrorParser" point="org.eclipse.cdt.core.ErrorParser"/>
+					<extension id="org.eclipse.cdt.core.CWDLocator" point="org.eclipse.cdt.core.ErrorParser"/>
+					<extension id="org.eclipse.cdt.core.GCCErrorParser" point="org.eclipse.cdt.core.ErrorParser"/>
+					<extension id="org.eclipse.cdt.core.GASErrorParser" point="org.eclipse.cdt.core.ErrorParser"/>
+					<extension id="org.eclipse.cdt.core.GLDErrorParser" point="org.eclipse.cdt.core.ErrorParser"/>
+				</extensions>
+			</storageModule>
+			<storageModule moduleId="cdtBuildSystem" version="4.0.0">
+				<configuration artifactName="${ProjName}" buildProperties="" description="meson6 SMP configuration" id="cdt.managedbuild.toolchain.gnu.cross.base.1467840092.212439101" name="meson6smp" parent="org.eclipse.cdt.build.core.emptycfg">
+					<folderInfo id="cdt.managedbuild.toolchain.gnu.cross.base.1467840092.212439101." name="/" resourcePath="">
+						<toolChain id="cdt.managedbuild.toolchain.gnu.cross.base.1587802874" name="cdt.managedbuild.toolchain.gnu.cross.base" superClass="cdt.managedbuild.toolchain.gnu.cross.base">
+							<option id="cdt.managedbuild.option.gnu.cross.prefix.2142821022" name="Prefix" superClass="cdt.managedbuild.option.gnu.cross.prefix"/>
+							<option id="cdt.managedbuild.option.gnu.cross.path.773622155" name="Path" superClass="cdt.managedbuild.option.gnu.cross.path"/>
+							<targetPlatform archList="all" binaryParser="org.eclipse.cdt.core.ELF" id="cdt.managedbuild.targetPlatform.gnu.cross.357239210" isAbstract="false" osList="all" superClass="cdt.managedbuild.targetPlatform.gnu.cross"/>
+							<builder arguments="-s  -f .eclipse.mk  -l8" buildPath="${workspace_loc:/kernel}" command="make" id="cdt.managedbuild.builder.gnu.cross.212932486" incrementalBuildTarget="eclipse_default" keepEnvironmentInBuildfile="false" managedBuildOn="false" name="Gnu Make Builder" parallelBuildOn="true" parallelizationNumber="8" superClass="cdt.managedbuild.builder.gnu.cross"/>
+							<tool id="cdt.managedbuild.tool.gnu.cross.c.compiler.1958016056" name="Cross GCC Compiler" superClass="cdt.managedbuild.tool.gnu.cross.c.compiler">
+								<option id="gnu.c.compiler.option.preprocessor.undef.symbol.291099582" name="Undefined symbols (-U)" superClass="gnu.c.compiler.option.preprocessor.undef.symbol"/>
+								<inputType id="cdt.managedbuild.tool.gnu.c.compiler.input.685286589" superClass="cdt.managedbuild.tool.gnu.c.compiler.input"/>
+							</tool>
+							<tool id="cdt.managedbuild.tool.gnu.cross.cpp.compiler.809380809" name="Cross G++ Compiler" superClass="cdt.managedbuild.tool.gnu.cross.cpp.compiler"/>
+							<tool id="cdt.managedbuild.tool.gnu.cross.c.linker.863371421" name="Cross GCC Linker" superClass="cdt.managedbuild.tool.gnu.cross.c.linker">
+								<inputType id="cdt.managedbuild.tool.gnu.c.linker.input.936914498" superClass="cdt.managedbuild.tool.gnu.c.linker.input">
+									<additionalInput kind="additionalinputdependency" paths="$(USER_OBJS)"/>
+									<additionalInput kind="additionalinput" paths="$(LIBS)"/>
+								</inputType>
+							</tool>
+							<tool id="cdt.managedbuild.tool.gnu.cross.cpp.linker.179959829" name="Cross G++ Linker" superClass="cdt.managedbuild.tool.gnu.cross.cpp.linker"/>
+							<tool id="cdt.managedbuild.tool.gnu.cross.archiver.1856050260" name="Cross GCC Archiver" superClass="cdt.managedbuild.tool.gnu.cross.archiver"/>
+							<tool id="cdt.managedbuild.tool.gnu.cross.assembler.619138510" name="Cross GCC Assembler" superClass="cdt.managedbuild.tool.gnu.cross.assembler">
+								<inputType id="cdt.managedbuild.tool.gnu.assembler.input.2015417394" superClass="cdt.managedbuild.tool.gnu.assembler.input"/>
+							</tool>
+						</toolChain>
+					</folderInfo>
+					<sourceEntries>
+						<entry excluding="arch/arm/plat-mxc|arch/arm/plat-iop|arch/arm/plat-versatile|arch/arm/plat-tcc|arch/arm/plat-spear|arch/arm/plat-samsung|arch/arm/plat-s5p|arch/arm/plat-s3c24xx|arch/arm/plat-pxa|arch/arm/plat-orion|arch/arm/plat-omap|arch/arm/plat-nomadik|arch/arm/mach-lpc32xx|arch/arm/mach-loki|arch/arm/mach-l7200|arch/arm/mach-ks8695|arch/arm/mach-kirkwood|arch/arm/mach-ixp4xx|arch/arm/mach-ixp23xx|arch/arm/mach-ixp2000|arch/arm/mach-iop33x|arch/arm/mach-iop32x|arch/arm/mach-iop13xx|arch/arm/mach-integrator|arch/arm/mach-imx|arch/arm/mach-h720x|arch/arm/mach-gemini|arch/arm/mach-footbridge|arch/arm/mach-exynos4|arch/arm/mach-ep93xx|arch/arm/mach-ebsa110|arch/arm/mach-dove|arch/arm/mach-davinci|arch/arm/mach-cns3xxx|arch/arm/mach-clps711x|arch/arm/mach-bcmring|arch/arm/mach-at91|arch/arm/mach-w90x900|arch/arm/mach-vt8500|arch/arm/mach-vexpress|arch/arm/mach-versatile|arch/arm/mach-ux500|arch/arm/mach-u300|arch/arm/mach-tegra|arch/arm/mach-tcc8k|arch/arm/mach-spear6xx|arch/arm/mach-spear3xx|arch/arm/mach-shmobile|arch/arm/mach-shark|arch/arm/mach-sa1100|arch/arm/mach-s5pv210|arch/arm/mach-s5pc100|arch/arm/mach-s5p64x0|arch/arm/mach-s3c64xx|arch/arm/mach-s3c24a0|arch/arm/mach-s3c2443|arch/arm/mach-s3c2440|arch/arm/mach-s3c2416|arch/arm/mach-s3c2412|arch/arm/mach-s3c2410|arch/arm/mach-s3c2400|arch/arm/mach-rpc|arch/arm/mach-realview|arch/arm/mach-pxa|arch/arm/mach-pnx4008|arch/arm/mach-orion5x|arch/arm/mach-omap2|arch/arm/mach-omap1|arch/arm/mach-nuc93x|arch/arm/mach-nomadik|arch/arm/mach-netx|arch/arm/mach-mxs|arch/arm/mach-mx5|arch/arm/mach-mv78xx0|arch/arm/mach-msm|arch/arm/mach-mmp|arch/alpha|arch/unicore32|arch/um|arch/tile|arch/sparc|arch/sh|arch/score|arch/s390|arch/powerpc|arch/parisc|arch/mn10300|arch/mips|arch/microblaze|arch/m68k|arch/m32r|arch/ia64|arch/h8300|arch/frv|arch/cris|arch/blackfin|arch/avr32" flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name=""/>
+					</sourceEntries>
+				</configuration>
+			</storageModule>
+			<storageModule moduleId="org.eclipse.cdt.core.externalSettings"/>
+		</cconfiguration>
+		<cconfiguration id="cdt.managedbuild.toolchain.gnu.cross.base.1467840092.1801278083">
+			<storageModule buildSystemId="org.eclipse.cdt.managedbuilder.core.configurationDataProvider" id="cdt.managedbuild.toolchain.gnu.cross.base.1467840092.1801278083" moduleId="org.eclipse.cdt.core.settings" name="meson6_android">
+				<externalSettings/>
+				<extensions>
+					<extension id="org.eclipse.cdt.core.ELF" point="org.eclipse.cdt.core.BinaryParser"/>
+					<extension id="org.eclipse.cdt.core.GmakeErrorParser" point="org.eclipse.cdt.core.ErrorParser"/>
+					<extension id="org.eclipse.cdt.core.CWDLocator" point="org.eclipse.cdt.core.ErrorParser"/>
+					<extension id="org.eclipse.cdt.core.GCCErrorParser" point="org.eclipse.cdt.core.ErrorParser"/>
+					<extension id="org.eclipse.cdt.core.GASErrorParser" point="org.eclipse.cdt.core.ErrorParser"/>
+					<extension id="org.eclipse.cdt.core.GLDErrorParser" point="org.eclipse.cdt.core.ErrorParser"/>
+				</extensions>
+			</storageModule>
+			<storageModule moduleId="cdtBuildSystem" version="4.0.0">
+				<configuration artifactName="${ProjName}" buildProperties="" description="Meson6 Android Defconfig" id="cdt.managedbuild.toolchain.gnu.cross.base.1467840092.1801278083" name="meson6_android" parent="org.eclipse.cdt.build.core.emptycfg">
+					<folderInfo id="cdt.managedbuild.toolchain.gnu.cross.base.1467840092.1801278083." name="/" resourcePath="">
+						<toolChain id="cdt.managedbuild.toolchain.gnu.cross.base.1227972351" name="cdt.managedbuild.toolchain.gnu.cross.base" superClass="cdt.managedbuild.toolchain.gnu.cross.base">
+							<option id="cdt.managedbuild.option.gnu.cross.prefix.1720797706" name="Prefix" superClass="cdt.managedbuild.option.gnu.cross.prefix"/>
+							<option id="cdt.managedbuild.option.gnu.cross.path.347540897" name="Path" superClass="cdt.managedbuild.option.gnu.cross.path"/>
+							<targetPlatform archList="all" binaryParser="org.eclipse.cdt.core.ELF" id="cdt.managedbuild.targetPlatform.gnu.cross.991389470" isAbstract="false" osList="all" superClass="cdt.managedbuild.targetPlatform.gnu.cross"/>
+							<builder arguments="-f .eclipse.mk -j${CPUNUM}" command="make" id="cdt.managedbuild.builder.gnu.cross.1882598530" incrementalBuildTarget="eclipse_default" keepEnvironmentInBuildfile="false" managedBuildOn="false" name="Gnu Make Builder" parallelBuildOn="false" parallelizationNumber="1" superClass="cdt.managedbuild.builder.gnu.cross"/>
+							<tool id="cdt.managedbuild.tool.gnu.cross.c.compiler.1654841817" name="Cross GCC Compiler" superClass="cdt.managedbuild.tool.gnu.cross.c.compiler">
+								<inputType id="cdt.managedbuild.tool.gnu.c.compiler.input.1409399655" superClass="cdt.managedbuild.tool.gnu.c.compiler.input"/>
+							</tool>
+							<tool id="cdt.managedbuild.tool.gnu.cross.cpp.compiler.1522576031" name="Cross G++ Compiler" superClass="cdt.managedbuild.tool.gnu.cross.cpp.compiler"/>
+							<tool id="cdt.managedbuild.tool.gnu.cross.c.linker.267591756" name="Cross GCC Linker" superClass="cdt.managedbuild.tool.gnu.cross.c.linker">
+								<inputType id="cdt.managedbuild.tool.gnu.c.linker.input.1842190831" superClass="cdt.managedbuild.tool.gnu.c.linker.input">
+									<additionalInput kind="additionalinputdependency" paths="$(USER_OBJS)"/>
+									<additionalInput kind="additionalinput" paths="$(LIBS)"/>
+								</inputType>
+							</tool>
+							<tool id="cdt.managedbuild.tool.gnu.cross.cpp.linker.1419680255" name="Cross G++ Linker" superClass="cdt.managedbuild.tool.gnu.cross.cpp.linker"/>
+							<tool id="cdt.managedbuild.tool.gnu.cross.archiver.1042910151" name="Cross GCC Archiver" superClass="cdt.managedbuild.tool.gnu.cross.archiver"/>
+							<tool id="cdt.managedbuild.tool.gnu.cross.assembler.518410245" name="Cross GCC Assembler" superClass="cdt.managedbuild.tool.gnu.cross.assembler">
+								<inputType id="cdt.managedbuild.tool.gnu.assembler.input.105250774" superClass="cdt.managedbuild.tool.gnu.assembler.input"/>
+							</tool>
+						</toolChain>
+					</folderInfo>
+					<sourceEntries>
+						<entry excluding="arch/arm/plat-mxc|arch/arm/plat-iop|arch/arm/plat-versatile|arch/arm/plat-tcc|arch/arm/plat-spear|arch/arm/plat-samsung|arch/arm/plat-s5p|arch/arm/plat-s3c24xx|arch/arm/plat-pxa|arch/arm/plat-orion|arch/arm/plat-omap|arch/arm/plat-nomadik|arch/arm/mach-lpc32xx|arch/arm/mach-loki|arch/arm/mach-l7200|arch/arm/mach-ks8695|arch/arm/mach-kirkwood|arch/arm/mach-ixp4xx|arch/arm/mach-ixp23xx|arch/arm/mach-ixp2000|arch/arm/mach-iop33x|arch/arm/mach-iop32x|arch/arm/mach-iop13xx|arch/arm/mach-integrator|arch/arm/mach-imx|arch/arm/mach-h720x|arch/arm/mach-gemini|arch/arm/mach-footbridge|arch/arm/mach-exynos4|arch/arm/mach-ep93xx|arch/arm/mach-ebsa110|arch/arm/mach-dove|arch/arm/mach-davinci|arch/arm/mach-cns3xxx|arch/arm/mach-clps711x|arch/arm/mach-bcmring|arch/arm/mach-at91|arch/arm/mach-w90x900|arch/arm/mach-vt8500|arch/arm/mach-vexpress|arch/arm/mach-versatile|arch/arm/mach-ux500|arch/arm/mach-u300|arch/arm/mach-tegra|arch/arm/mach-tcc8k|arch/arm/mach-spear6xx|arch/arm/mach-spear3xx|arch/arm/mach-shmobile|arch/arm/mach-shark|arch/arm/mach-sa1100|arch/arm/mach-s5pv210|arch/arm/mach-s5pc100|arch/arm/mach-s5p64x0|arch/arm/mach-s3c64xx|arch/arm/mach-s3c24a0|arch/arm/mach-s3c2443|arch/arm/mach-s3c2440|arch/arm/mach-s3c2416|arch/arm/mach-s3c2412|arch/arm/mach-s3c2410|arch/arm/mach-s3c2400|arch/arm/mach-rpc|arch/arm/mach-realview|arch/arm/mach-pxa|arch/arm/mach-pnx4008|arch/arm/mach-orion5x|arch/arm/mach-omap2|arch/arm/mach-omap1|arch/arm/mach-nuc93x|arch/arm/mach-nomadik|arch/arm/mach-netx|arch/arm/mach-mxs|arch/arm/mach-mx5|arch/arm/mach-mv78xx0|arch/arm/mach-msm|arch/arm/mach-mmp|arch/alpha|arch/unicore32|arch/um|arch/tile|arch/sparc|arch/sh|arch/score|arch/s390|arch/powerpc|arch/parisc|arch/mn10300|arch/mips|arch/microblaze|arch/m68k|arch/m32r|arch/ia64|arch/h8300|arch/frv|arch/cris|arch/blackfin|arch/avr32" flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name=""/>
+					</sourceEntries>
+				</configuration>
+			</storageModule>
+			<storageModule moduleId="org.eclipse.cdt.core.externalSettings"/>
+		</cconfiguration>
+		<cconfiguration id="cdt.managedbuild.toolchain.gnu.cross.base.1467840092.696676413">
+			<storageModule buildSystemId="org.eclipse.cdt.managedbuilder.core.configurationDataProvider" id="cdt.managedbuild.toolchain.gnu.cross.base.1467840092.696676413" moduleId="org.eclipse.cdt.core.settings" name="meson6smp_android">
+				<externalSettings/>
+				<extensions>
+					<extension id="org.eclipse.cdt.core.ELF" point="org.eclipse.cdt.core.BinaryParser"/>
+					<extension id="org.eclipse.cdt.core.GmakeErrorParser" point="org.eclipse.cdt.core.ErrorParser"/>
+					<extension id="org.eclipse.cdt.core.CWDLocator" point="org.eclipse.cdt.core.ErrorParser"/>
+					<extension id="org.eclipse.cdt.core.GCCErrorParser" point="org.eclipse.cdt.core.ErrorParser"/>
+					<extension id="org.eclipse.cdt.core.GASErrorParser" point="org.eclipse.cdt.core.ErrorParser"/>
+					<extension id="org.eclipse.cdt.core.GLDErrorParser" point="org.eclipse.cdt.core.ErrorParser"/>
+				</extensions>
+			</storageModule>
+			<storageModule moduleId="cdtBuildSystem" version="4.0.0">
+				<configuration artifactName="${ProjName}" buildProperties="" description="Meson6SMP Android" id="cdt.managedbuild.toolchain.gnu.cross.base.1467840092.696676413" name="meson6smp_android" parent="org.eclipse.cdt.build.core.emptycfg">
+					<folderInfo id="cdt.managedbuild.toolchain.gnu.cross.base.1467840092.696676413." name="/" resourcePath="">
+						<toolChain id="cdt.managedbuild.toolchain.gnu.cross.base.510619793" name="cdt.managedbuild.toolchain.gnu.cross.base" superClass="cdt.managedbuild.toolchain.gnu.cross.base">
+							<option id="cdt.managedbuild.option.gnu.cross.prefix.1759210562" name="Prefix" superClass="cdt.managedbuild.option.gnu.cross.prefix"/>
+							<option id="cdt.managedbuild.option.gnu.cross.path.531310170" name="Path" superClass="cdt.managedbuild.option.gnu.cross.path"/>
+							<targetPlatform archList="all" binaryParser="org.eclipse.cdt.core.ELF" id="cdt.managedbuild.targetPlatform.gnu.cross.406811026" isAbstract="false" osList="all" superClass="cdt.managedbuild.targetPlatform.gnu.cross"/>
+							<builder arguments="-f .eclipse.mk -j${CPUNUM}" command="make" id="cdt.managedbuild.builder.gnu.cross.795569801" incrementalBuildTarget="eclipse_default" keepEnvironmentInBuildfile="false" managedBuildOn="false" name="Gnu Make Builder" parallelBuildOn="false" parallelizationNumber="-1" superClass="cdt.managedbuild.builder.gnu.cross"/>
+							<tool id="cdt.managedbuild.tool.gnu.cross.c.compiler.1522609459" name="Cross GCC Compiler" superClass="cdt.managedbuild.tool.gnu.cross.c.compiler">
+								<inputType id="cdt.managedbuild.tool.gnu.c.compiler.input.1595932380" superClass="cdt.managedbuild.tool.gnu.c.compiler.input"/>
+							</tool>
+							<tool id="cdt.managedbuild.tool.gnu.cross.cpp.compiler.749382961" name="Cross G++ Compiler" superClass="cdt.managedbuild.tool.gnu.cross.cpp.compiler"/>
+							<tool id="cdt.managedbuild.tool.gnu.cross.c.linker.190649143" name="Cross GCC Linker" superClass="cdt.managedbuild.tool.gnu.cross.c.linker">
+								<inputType id="cdt.managedbuild.tool.gnu.c.linker.input.33227375" superClass="cdt.managedbuild.tool.gnu.c.linker.input">
+									<additionalInput kind="additionalinputdependency" paths="$(USER_OBJS)"/>
+									<additionalInput kind="additionalinput" paths="$(LIBS)"/>
+								</inputType>
+							</tool>
+							<tool id="cdt.managedbuild.tool.gnu.cross.cpp.linker.637132159" name="Cross G++ Linker" superClass="cdt.managedbuild.tool.gnu.cross.cpp.linker"/>
+							<tool id="cdt.managedbuild.tool.gnu.cross.archiver.1982445224" name="Cross GCC Archiver" superClass="cdt.managedbuild.tool.gnu.cross.archiver"/>
+							<tool id="cdt.managedbuild.tool.gnu.cross.assembler.1580397646" name="Cross GCC Assembler" superClass="cdt.managedbuild.tool.gnu.cross.assembler">
+								<inputType id="cdt.managedbuild.tool.gnu.assembler.input.2106045793" superClass="cdt.managedbuild.tool.gnu.assembler.input"/>
+							</tool>
+						</toolChain>
+					</folderInfo>
+					<sourceEntries>
+						<entry excluding="arch/arm/plat-mxc|arch/arm/plat-iop|arch/arm/plat-versatile|arch/arm/plat-tcc|arch/arm/plat-spear|arch/arm/plat-samsung|arch/arm/plat-s5p|arch/arm/plat-s3c24xx|arch/arm/plat-pxa|arch/arm/plat-orion|arch/arm/plat-omap|arch/arm/plat-nomadik|arch/arm/mach-lpc32xx|arch/arm/mach-loki|arch/arm/mach-l7200|arch/arm/mach-ks8695|arch/arm/mach-kirkwood|arch/arm/mach-ixp4xx|arch/arm/mach-ixp23xx|arch/arm/mach-ixp2000|arch/arm/mach-iop33x|arch/arm/mach-iop32x|arch/arm/mach-iop13xx|arch/arm/mach-integrator|arch/arm/mach-imx|arch/arm/mach-h720x|arch/arm/mach-gemini|arch/arm/mach-footbridge|arch/arm/mach-exynos4|arch/arm/mach-ep93xx|arch/arm/mach-ebsa110|arch/arm/mach-dove|arch/arm/mach-davinci|arch/arm/mach-cns3xxx|arch/arm/mach-clps711x|arch/arm/mach-bcmring|arch/arm/mach-at91|arch/arm/mach-w90x900|arch/arm/mach-vt8500|arch/arm/mach-vexpress|arch/arm/mach-versatile|arch/arm/mach-ux500|arch/arm/mach-u300|arch/arm/mach-tegra|arch/arm/mach-tcc8k|arch/arm/mach-spear6xx|arch/arm/mach-spear3xx|arch/arm/mach-shmobile|arch/arm/mach-shark|arch/arm/mach-sa1100|arch/arm/mach-s5pv210|arch/arm/mach-s5pc100|arch/arm/mach-s5p64x0|arch/arm/mach-s3c64xx|arch/arm/mach-s3c24a0|arch/arm/mach-s3c2443|arch/arm/mach-s3c2440|arch/arm/mach-s3c2416|arch/arm/mach-s3c2412|arch/arm/mach-s3c2410|arch/arm/mach-s3c2400|arch/arm/mach-rpc|arch/arm/mach-realview|arch/arm/mach-pxa|arch/arm/mach-pnx4008|arch/arm/mach-orion5x|arch/arm/mach-omap2|arch/arm/mach-omap1|arch/arm/mach-nuc93x|arch/arm/mach-nomadik|arch/arm/mach-netx|arch/arm/mach-mxs|arch/arm/mach-mx5|arch/arm/mach-mv78xx0|arch/arm/mach-msm|arch/arm/mach-mmp|arch/alpha|arch/unicore32|arch/um|arch/tile|arch/sparc|arch/sh|arch/score|arch/s390|arch/powerpc|arch/parisc|arch/mn10300|arch/mips|arch/microblaze|arch/m68k|arch/m32r|arch/ia64|arch/h8300|arch/frv|arch/cris|arch/blackfin|arch/avr32" flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name=""/>
+					</sourceEntries>
+				</configuration>
+			</storageModule>
+			<storageModule moduleId="org.eclipse.cdt.core.externalSettings"/>
+		</cconfiguration>
+		<cconfiguration id="cdt.managedbuild.toolchain.gnu.cross.base.1467840092.696676413.1013646909">
+			<storageModule buildSystemId="org.eclipse.cdt.managedbuilder.core.configurationDataProvider" id="cdt.managedbuild.toolchain.gnu.cross.base.1467840092.696676413.1013646909" moduleId="org.eclipse.cdt.core.settings" name="meson6_g04">
+				<externalSettings/>
+				<extensions>
+					<extension id="org.eclipse.cdt.core.ELF" point="org.eclipse.cdt.core.BinaryParser"/>
+					<extension id="org.eclipse.cdt.core.GmakeErrorParser" point="org.eclipse.cdt.core.ErrorParser"/>
+					<extension id="org.eclipse.cdt.core.CWDLocator" point="org.eclipse.cdt.core.ErrorParser"/>
+					<extension id="org.eclipse.cdt.core.GCCErrorParser" point="org.eclipse.cdt.core.ErrorParser"/>
+					<extension id="org.eclipse.cdt.core.GASErrorParser" point="org.eclipse.cdt.core.ErrorParser"/>
+					<extension id="org.eclipse.cdt.core.GLDErrorParser" point="org.eclipse.cdt.core.ErrorParser"/>
+				</extensions>
+			</storageModule>
+			<storageModule moduleId="cdtBuildSystem" version="4.0.0">
+				<configuration artifactName="${ProjName}" buildProperties="" description="Ramos Defconfig" id="cdt.managedbuild.toolchain.gnu.cross.base.1467840092.696676413.1013646909" name="meson6_g04" parent="org.eclipse.cdt.build.core.emptycfg">
+					<folderInfo id="cdt.managedbuild.toolchain.gnu.cross.base.1467840092.696676413.1013646909." name="/" resourcePath="">
+						<toolChain id="cdt.managedbuild.toolchain.gnu.cross.base.203811097" name="cdt.managedbuild.toolchain.gnu.cross.base" superClass="cdt.managedbuild.toolchain.gnu.cross.base">
+							<option id="cdt.managedbuild.option.gnu.cross.prefix.1333093093" name="Prefix" superClass="cdt.managedbuild.option.gnu.cross.prefix"/>
+							<option id="cdt.managedbuild.option.gnu.cross.path.1962731997" name="Path" superClass="cdt.managedbuild.option.gnu.cross.path"/>
+							<targetPlatform archList="all" binaryParser="org.eclipse.cdt.core.ELF" id="cdt.managedbuild.targetPlatform.gnu.cross.1471347428" isAbstract="false" osList="all" superClass="cdt.managedbuild.targetPlatform.gnu.cross"/>
+							<builder arguments="-f .eclipse.mk -j${CPUNUM}" command="make" id="cdt.managedbuild.builder.gnu.cross.500871182" incrementalBuildTarget="eclipse_default" keepEnvironmentInBuildfile="false" managedBuildOn="false" name="Gnu Make Builder" parallelBuildOn="false" parallelizationNumber="-1" superClass="cdt.managedbuild.builder.gnu.cross"/>
+							<tool id="cdt.managedbuild.tool.gnu.cross.c.compiler.689933820" name="Cross GCC Compiler" superClass="cdt.managedbuild.tool.gnu.cross.c.compiler">
+								<inputType id="cdt.managedbuild.tool.gnu.c.compiler.input.49743267" superClass="cdt.managedbuild.tool.gnu.c.compiler.input"/>
+							</tool>
+							<tool id="cdt.managedbuild.tool.gnu.cross.cpp.compiler.2134319592" name="Cross G++ Compiler" superClass="cdt.managedbuild.tool.gnu.cross.cpp.compiler"/>
+							<tool id="cdt.managedbuild.tool.gnu.cross.c.linker.1132173684" name="Cross GCC Linker" superClass="cdt.managedbuild.tool.gnu.cross.c.linker">
+								<inputType id="cdt.managedbuild.tool.gnu.c.linker.input.1908045270" superClass="cdt.managedbuild.tool.gnu.c.linker.input">
+									<additionalInput kind="additionalinputdependency" paths="$(USER_OBJS)"/>
+									<additionalInput kind="additionalinput" paths="$(LIBS)"/>
+								</inputType>
+							</tool>
+							<tool id="cdt.managedbuild.tool.gnu.cross.cpp.linker.1307361070" name="Cross G++ Linker" superClass="cdt.managedbuild.tool.gnu.cross.cpp.linker"/>
+							<tool id="cdt.managedbuild.tool.gnu.cross.archiver.1096697093" name="Cross GCC Archiver" superClass="cdt.managedbuild.tool.gnu.cross.archiver"/>
+							<tool id="cdt.managedbuild.tool.gnu.cross.assembler.1224196762" name="Cross GCC Assembler" superClass="cdt.managedbuild.tool.gnu.cross.assembler">
+								<inputType id="cdt.managedbuild.tool.gnu.assembler.input.1649195658" superClass="cdt.managedbuild.tool.gnu.assembler.input"/>
+							</tool>
+						</toolChain>
+					</folderInfo>
+					<sourceEntries>
+						<entry excluding="arch/arm/plat-mxc|arch/arm/plat-iop|arch/arm/plat-versatile|arch/arm/plat-tcc|arch/arm/plat-spear|arch/arm/plat-samsung|arch/arm/plat-s5p|arch/arm/plat-s3c24xx|arch/arm/plat-pxa|arch/arm/plat-orion|arch/arm/plat-omap|arch/arm/plat-nomadik|arch/arm/mach-lpc32xx|arch/arm/mach-loki|arch/arm/mach-l7200|arch/arm/mach-ks8695|arch/arm/mach-kirkwood|arch/arm/mach-ixp4xx|arch/arm/mach-ixp23xx|arch/arm/mach-ixp2000|arch/arm/mach-iop33x|arch/arm/mach-iop32x|arch/arm/mach-iop13xx|arch/arm/mach-integrator|arch/arm/mach-imx|arch/arm/mach-h720x|arch/arm/mach-gemini|arch/arm/mach-footbridge|arch/arm/mach-exynos4|arch/arm/mach-ep93xx|arch/arm/mach-ebsa110|arch/arm/mach-dove|arch/arm/mach-davinci|arch/arm/mach-cns3xxx|arch/arm/mach-clps711x|arch/arm/mach-bcmring|arch/arm/mach-at91|arch/arm/mach-w90x900|arch/arm/mach-vt8500|arch/arm/mach-vexpress|arch/arm/mach-versatile|arch/arm/mach-ux500|arch/arm/mach-u300|arch/arm/mach-tegra|arch/arm/mach-tcc8k|arch/arm/mach-spear6xx|arch/arm/mach-spear3xx|arch/arm/mach-shmobile|arch/arm/mach-shark|arch/arm/mach-sa1100|arch/arm/mach-s5pv210|arch/arm/mach-s5pc100|arch/arm/mach-s5p64x0|arch/arm/mach-s3c64xx|arch/arm/mach-s3c24a0|arch/arm/mach-s3c2443|arch/arm/mach-s3c2440|arch/arm/mach-s3c2416|arch/arm/mach-s3c2412|arch/arm/mach-s3c2410|arch/arm/mach-s3c2400|arch/arm/mach-rpc|arch/arm/mach-realview|arch/arm/mach-pxa|arch/arm/mach-pnx4008|arch/arm/mach-orion5x|arch/arm/mach-omap2|arch/arm/mach-omap1|arch/arm/mach-nuc93x|arch/arm/mach-nomadik|arch/arm/mach-netx|arch/arm/mach-mxs|arch/arm/mach-mx5|arch/arm/mach-mv78xx0|arch/arm/mach-msm|arch/arm/mach-mmp|arch/alpha|arch/unicore32|arch/um|arch/tile|arch/sparc|arch/sh|arch/score|arch/s390|arch/powerpc|arch/parisc|arch/mn10300|arch/mips|arch/microblaze|arch/m68k|arch/m32r|arch/ia64|arch/h8300|arch/frv|arch/cris|arch/blackfin|arch/avr32" flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name=""/>
+					</sourceEntries>
+				</configuration>
+			</storageModule>
+			<storageModule moduleId="org.eclipse.cdt.core.externalSettings"/>
+		</cconfiguration>
+	</storageModule>
+	<storageModule moduleId="cdtBuildSystem" version="4.0.0">
+		<project id="kernel.null.115234261" name="kernel"/>
+	</storageModule>
+	<storageModule moduleId="refreshScope" versionNumber="1">
+		<resource resourceType="PROJECT" workspacePath="/kernel"/>
+	</storageModule>
+	<storageModule moduleId="org.eclipse.cdt.internal.ui.text.commentOwnerProjectMappings">
+		<doc-comment-owner id="org.eclipse.cdt.ui.doxygen">
+			<path value=""/>
+		</doc-comment-owner>
+	</storageModule>
+	<storageModule moduleId="org.eclipse.cdt.make.core.buildtargets">
+		<buildTargets>
+			<target name="eclipse_defconfig" path="" targetID="org.eclipse.cdt.build.MakeTargetBuilder">
+				<buildCommand>make</buildCommand>
+				<buildArguments>-f .eclipse.mk  -l10  -j</buildArguments>
+				<buildTarget>eclipse_defconfig</buildTarget>
+				<stopOnError>true</stopOnError>
+				<useDefaultCommand>true</useDefaultCommand>
+				<runAllBuilders>true</runAllBuilders>
+			</target>
+			<target name="gconfig" path="" targetID="org.eclipse.cdt.build.MakeTargetBuilder">
+				<buildCommand>make</buildCommand>
+				<buildArguments>-s  -f .eclipse.mk  -l8  -j8</buildArguments>
+				<buildTarget>gconfig</buildTarget>
+				<stopOnError>true</stopOnError>
+				<useDefaultCommand>true</useDefaultCommand>
+				<runAllBuilders>true</runAllBuilders>
+			</target>
+			<target name="Install_uImage" path="" targetID="org.eclipse.cdt.build.MakeTargetBuilder">
+				<buildCommand>make</buildCommand>
+				<buildArguments>-s  -f .eclipse.mk  -l8  -j8</buildArguments>
+				<buildTarget>Install_uImage</buildTarget>
+				<stopOnError>true</stopOnError>
+				<useDefaultCommand>true</useDefaultCommand>
+				<runAllBuilders>true</runAllBuilders>
+			</target>
+		</buildTargets>
+	</storageModule>
+	<storageModule moduleId="scannerConfiguration">
+		<autodiscovery enabled="true" problemReportingEnabled="true" selectedProfileId=""/>
+		<scannerConfigBuildInfo instanceId="cdt.managedbuild.toolchain.gnu.cross.base.1467840092.212439101;cdt.managedbuild.toolchain.gnu.cross.base.1467840092.212439101.;cdt.managedbuild.tool.gnu.cross.c.compiler.1958016056;cdt.managedbuild.tool.gnu.c.compiler.input.685286589">
+			<autodiscovery enabled="true" problemReportingEnabled="true" selectedProfileId="org.eclipse.cdt.managedbuilder.core.GCCManagedMakePerProjectProfileC"/>
+			<profile id="org.eclipse.cdt.managedbuilder.core.GCCManagedMakePerProjectProfileC">
+				<buildOutputProvider>
+					<openAction enabled="true" filePath=""/>
+					<parser enabled="true"/>
+				</buildOutputProvider>
+				<scannerInfoProvider id="specsFile">
+					<runAction arguments="-f .eclipse.mk -s eclipseinfo" command="make" useDefault="true"/>
+					<parser enabled="true"/>
+				</scannerInfoProvider>
+			</profile>
+		</scannerConfigBuildInfo>
+		<scannerConfigBuildInfo instanceId="cdt.managedbuild.toolchain.gnu.cross.base.1467840092.696676413.1013646909;cdt.managedbuild.toolchain.gnu.cross.base.1467840092.696676413.1013646909.;cdt.managedbuild.tool.gnu.cross.c.compiler.689933820;cdt.managedbuild.tool.gnu.c.compiler.input.49743267">
+			<autodiscovery enabled="true" problemReportingEnabled="true" selectedProfileId="org.eclipse.cdt.managedbuilder.core.GCCManagedMakePerProjectProfileC"/>
+			<profile id="org.eclipse.cdt.managedbuilder.core.GCCManagedMakePerProjectProfileC">
+				<buildOutputProvider>
+					<openAction enabled="true" filePath=""/>
+					<parser enabled="true"/>
+				</buildOutputProvider>
+				<scannerInfoProvider id="specsFile">
+					<runAction arguments="-f .eclipse.mk -s eclipseinfo" command="make" useDefault="true"/>
+					<parser enabled="true"/>
+				</scannerInfoProvider>
+			</profile>
+		</scannerConfigBuildInfo>
+		<scannerConfigBuildInfo instanceId="cdt.managedbuild.toolchain.gnu.cross.base.1467840092.1801278083;cdt.managedbuild.toolchain.gnu.cross.base.1467840092.1801278083.;cdt.managedbuild.tool.gnu.cross.c.compiler.1654841817;cdt.managedbuild.tool.gnu.c.compiler.input.1409399655">
+			<autodiscovery enabled="true" problemReportingEnabled="true" selectedProfileId="org.eclipse.cdt.managedbuilder.core.GCCManagedMakePerProjectProfileC"/>
+			<profile id="org.eclipse.cdt.managedbuilder.core.GCCManagedMakePerProjectProfileC">
+				<buildOutputProvider>
+					<openAction enabled="true" filePath=""/>
+					<parser enabled="true"/>
+				</buildOutputProvider>
+				<scannerInfoProvider id="specsFile">
+					<runAction arguments="-f .eclipse.mk -s eclipseinfo" command="make" useDefault="true"/>
+					<parser enabled="true"/>
+				</scannerInfoProvider>
+			</profile>
+		</scannerConfigBuildInfo>
+		<scannerConfigBuildInfo instanceId="cdt.managedbuild.toolchain.gnu.cross.base.1467840092;cdt.managedbuild.toolchain.gnu.cross.base.1467840092.1784820291;cdt.managedbuild.tool.gnu.cross.c.compiler.1696458618;cdt.managedbuild.tool.gnu.c.compiler.input.136613430">
+			<autodiscovery enabled="true" problemReportingEnabled="true" selectedProfileId="org.eclipse.cdt.managedbuilder.core.GCCManagedMakePerProjectProfileC"/>
+			<profile id="org.eclipse.cdt.managedbuilder.core.GCCManagedMakePerProjectProfileC">
+				<buildOutputProvider>
+					<openAction enabled="true" filePath=""/>
+					<parser enabled="true"/>
+				</buildOutputProvider>
+				<scannerInfoProvider id="specsFile">
+					<runAction arguments="-f .eclipse.mk -s eclipseinfo" command="make" useDefault="true"/>
+					<parser enabled="true"/>
+				</scannerInfoProvider>
+			</profile>
+		</scannerConfigBuildInfo>
+		<scannerConfigBuildInfo instanceId="cdt.managedbuild.toolchain.gnu.cross.base.1467840092.696676413;cdt.managedbuild.toolchain.gnu.cross.base.1467840092.696676413.;cdt.managedbuild.tool.gnu.cross.c.compiler.1522609459;cdt.managedbuild.tool.gnu.c.compiler.input.1595932380">
+			<autodiscovery enabled="true" problemReportingEnabled="true" selectedProfileId="org.eclipse.cdt.managedbuilder.core.GCCManagedMakePerProjectProfileC"/>
+			<profile id="org.eclipse.cdt.managedbuilder.core.GCCManagedMakePerProjectProfileC">
+				<buildOutputProvider>
+					<openAction enabled="true" filePath=""/>
+					<parser enabled="true"/>
+				</buildOutputProvider>
+				<scannerInfoProvider id="specsFile">
+					<runAction arguments="-f .eclipse.mk  eclipseinfo" command="make" useDefault="true"/>
+					<parser enabled="true"/>
+				</scannerInfoProvider>
+			</profile>
+		</scannerConfigBuildInfo>
+	</storageModule>
+</cproject>
