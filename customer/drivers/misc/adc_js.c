@@ -178,8 +178,8 @@ static void gpio_keys_init(void) {
 static struct joy *gp_joy = NULL;
 
 static int keya, keyb, keyx, keyy, keyl, keyr, keyl2, keyr2;
-static int keya_old, keyb_old, keyx_old, keyy_old, keyl_old, keyr_old,
-        keyl2_old, keyr2_old;
+//static int keya_old, keyb_old, keyx_old, keyy_old, keyl_old, keyr_old,
+//        keyl2_old, keyr2_old;
 static void scan_keys(struct joy *joy) {
     struct input_dev *input = joy->input;
 
@@ -193,7 +193,6 @@ static void scan_keys(struct joy *joy) {
     keyy = get_gpio_val(GPIOA_bank_bit0_27(10), GPIOA_bit_bit0_27(10));
 
     //if key not pressed
-    if (keya == keya_old) {
         if (!keya) {
             if (joy->buttons[4] > 0) {
                 input_report_key(input, BTN_A, 0);
@@ -207,8 +206,6 @@ static void scan_keys(struct joy *joy) {
             }
             joy->buttons[4]++;
         }
-    }
-    if (keyb == keyb_old) {
         if (!keyb) {
             if (joy->buttons[5] > 0) {
                 input_report_key(input, BTN_B, 0);
@@ -222,8 +219,6 @@ static void scan_keys(struct joy *joy) {
             }
             joy->buttons[5]++;
         }
-    }
-    if (keyx == keyx_old) {
         if (!keyx) {
             if (joy->buttons[6] > 0) {
                 input_report_key(input, BTN_X, 0);
@@ -237,8 +232,6 @@ static void scan_keys(struct joy *joy) {
             }
             joy->buttons[6]++;
         }
-    }
-    if (keyy == keyy_old) {
         if (!keyy) {
             if (joy->buttons[7] > 0) {
                 input_report_key(input, BTN_Y, 0);
@@ -252,8 +245,6 @@ static void scan_keys(struct joy *joy) {
             }
             joy->buttons[7]++;
         }
-    }
-    if (keyl == keyl_old) {
         if (!keyl) {
             if (joy->buttons[8] > 0) {
                 input_report_key(input, BTN_TL, 0);
@@ -267,8 +258,6 @@ static void scan_keys(struct joy *joy) {
             }
             joy->buttons[8]++;
         }
-    }
-    if (keyr == keyr_old) {
         if (!keyr) {
             if (joy->buttons[9] > 0) {
                 input_report_key(input, BTN_TR, 0);
@@ -282,8 +271,6 @@ static void scan_keys(struct joy *joy) {
             }
             joy->buttons[9]++;
         }
-    }
-    if (keyl2 == keyl2_old) {
         if (!keyl2) {
             if (joy->buttons[10] > 0) {
                 input_report_key(input, BTN_TL2, 0);
@@ -297,8 +284,6 @@ static void scan_keys(struct joy *joy) {
             }
             joy->buttons[10]++;
         }
-    }
-    if (keyr2 == keyr2_old) {
         if (!keyr2) {
             if (joy->buttons[11] > 0) {
                 input_report_key(input, BTN_TR2, 0);
@@ -312,15 +297,6 @@ static void scan_keys(struct joy *joy) {
             }
             joy->buttons[11]++;
         }
-    }
-    keyl_old = keyl;
-    keyr_old = keyr;
-    keyl2_old = keyl2;
-    keyr2_old = keyr2;
-    keya_old = keya;
-    keyb_old = keyb;
-    keyx_old = keyx;
-    keyy_old = keyy;
 
 }
 
