@@ -1,5 +1,5 @@
 /*
- * drivers/amlogic/input/adc_keypad/adc_keypad.c
+ * drivers/misc/adc_js.c
  *
  * ADC Keypad Driver
  *
@@ -20,6 +20,12 @@
  * along with this program; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  * author :   Robin Zhu
+ *
+ *************************************************
+ * Vektor 2013:
+ *************************************************
+ * - Removed SysFS key_parameter, screw the stock mapper :-P
+ * - Input from analog sticks is recognized as analog stick. 
  */
 
 #include <linux/module.h>
@@ -45,15 +51,12 @@
 #include <mach/gpio.h>
 #include <mach/gpio_data.h>
 
-#define ADC_KEY 250
-
+/*Not needed anymore*/
+//#define ADC_KEY 250
 struct joy {
     struct input_dev *input;
     //LX, LY, RX, RY, a, b, x, y, l, r, l2, r2, start, select, volup, voldn
     unsigned int buttons[16];
-    int jstickkeys[8];
-
-    //int jstickaxis[4];
     int chan[SARADC_CHAN_NUM];
     struct timer_list timer;
     int chan_num;
@@ -75,40 +78,16 @@ static void joystick_key(struct joy *joy) {
         if (value < 0) {
             ;
         } else {
-	/*
-        	if(i<2){
-            if (value <= 0 + ADC_KEY) {
-                if (joy->buttons[i]) {
-                    input_report_key(joy->input, joy->jstickkeys[i * 2], 1);
-                }
-                joy->buttons[i]++;
-            } else if (value >= 1023 - ADC_KEY) {
-                if (joy->buttons[i]) {
-                    input_report_key(joy->input, joy->jstickkeys[(i * 2) + 1],
-                            1);
-                }
-                joy->buttons[i]++;
-            } else {
+            analogvalues[i] = value;
 
-                if (joy->buttons[i] > 0) {
-                    joy->buttons[i] = 0;
-                    input_report_key(joy->input, joy->jstickkeys[i * 2], 0);
-                    input_report_key(joy->input, joy->jstickkeys[(i * 2) + 1],
-                            0);
-                }
-            }
-        	}
-	*/
-            analogvalues[i]=value;
-            
-             if (i == 0)
-             input_report_abs(joy->input, ABS_RY, value);
-             else if (i == 1)
-             input_report_abs(joy->input, ABS_RX, 1023 - value); 
-             if (i == 2)
-             input_report_abs(joy->input, ABS_X, 1023 - value);
-             else if (i == 3)
-             input_report_abs(joy->input, ABS_Y, 1023 - value);
+            if (i == 0)
+                input_report_abs(joy->input, ABS_RY, value - 512);
+            else if (i == 1)
+                input_report_abs(joy->input, ABS_RX, (1023 - value) - 512);
+            else if (i == 2)
+                input_report_abs(joy->input, ABS_X, (1023 - value) - 512);
+            else if (i == 3)
+                input_report_abs(joy->input, ABS_Y, (1023 - value) - 512);
 
         }
     }
@@ -120,38 +99,46 @@ static void joystick_key(struct joy *joy) {
         if (value >= 0 && value <= (9 + 40)) {
             if (joy->buttons[13]) {
                 input_report_key(joy->input, BTN_SELECT, 1);
+                //printk("KEY SELECT PRESSED \n");
             }
             joy->buttons[13]++;
         } else if (value >= (392 - 40) && value <= (392 + 40)) {
             if (joy->buttons[12]) {
                 input_report_key(joy->input, KEY_ENTER, 1);
+                //printk("KEY ENTER PRESSED \n");
             }
             joy->buttons[12]++;
         } else if (value >= (150 - 40) && value <= (150 + 40)) {
             if (joy->buttons[15]) {
                 input_report_key(joy->input, KEY_VOLUMEDOWN, 1);
+                //printk("KEY VOLDN PRESSED \n");
             }
             joy->buttons[15]++;
         } else if (value >= (275 - 40) && value <= (275 + 40)) {
             if (joy->buttons[14]) {
                 input_report_key(joy->input, KEY_VOLUMEUP, 1);
+                //printk("KEY VOLUP PRESSED \n");
             }
             joy->buttons[14]++;
         } else {
             if (joy->buttons[12] > 0) {
                 input_report_key(joy->input, KEY_ENTER, 0);
+                //printk("KEY ENTER RELEASED \n");
                 joy->buttons[12] = 0;
             }
             if (joy->buttons[13] > 0) {
                 input_report_key(joy->input, BTN_SELECT, 0);
+                //printk("KEY SELECT RELEASED \n");
                 joy->buttons[13] = 0;
             }
             if (joy->buttons[14] > 0) {
                 input_report_key(joy->input, KEY_VOLUMEUP, 0);
+                //printk("KEY VOLUP RELEASED \n");
                 joy->buttons[14] = 0;
             }
             if (joy->buttons[15] > 0) {
                 input_report_key(joy->input, KEY_VOLUMEDOWN, 0);
+                //printk("KEY VOLDN RELEASED \n");
                 joy->buttons[15] = 0;
             }
         }
@@ -191,8 +178,8 @@ static void gpio_keys_init(void) {
 static struct joy *gp_joy = NULL;
 
 static int keya, keyb, keyx, keyy, keyl, keyr, keyl2, keyr2;
-//static int keya_old, keyb_old, keyx_old, keyy_old, keyl_old, keyr_old,
-//        keyl2_old, keyr2_old;
+static int keya_old, keyb_old, keyx_old, keyy_old, keyl_old, keyr_old,
+        keyl2_old, keyr2_old;
 static void scan_keys(struct joy *joy) {
     struct input_dev *input = joy->input;
 
@@ -206,110 +193,134 @@ static void scan_keys(struct joy *joy) {
     keyy = get_gpio_val(GPIOA_bank_bit0_27(10), GPIOA_bit_bit0_27(10));
 
     //if key not pressed
-    if (!keya) {
-        if (joy->buttons[4] > 0) {
-            input_report_key(input, BTN_A, 0);
-            joy->buttons[4] = 0;
-            printk("KEY A RELEASED %d \n", keya);
+    if (keya == keya_old) {
+        if (!keya) {
+            if (joy->buttons[4] > 0) {
+                input_report_key(input, BTN_A, 0);
+                joy->buttons[4] = 0;
+                printk("KEY A RELEASED %d \n", keya);
+            }
+        } else {
+            if (joy->buttons[4] == 0) {
+                input_report_key(input, BTN_A, 1);
+                printk("KEY A PRESSED %d \n", keya);
+            }
+            joy->buttons[4]++;
         }
-    } else {
-        if (joy->buttons[4] == 0) {
-            input_report_key(input, BTN_A, 1);
-            printk("KEY A PRESSED %d \n", keya);
-        }
-        joy->buttons[4]++;
     }
-    if (!keyb) {
-        if (joy->buttons[5] > 0) {
-            input_report_key(input, BTN_B, 0);
-            joy->buttons[5] = 0;
-            printk("KEY B RELEASED \n");
+    if (keyb == keyb_old) {
+        if (!keyb) {
+            if (joy->buttons[5] > 0) {
+                input_report_key(input, BTN_B, 0);
+                joy->buttons[5] = 0;
+                printk("KEY B RELEASED \n");
+            }
+        } else {
+            if (joy->buttons[5] == 0) {
+                input_report_key(input, BTN_B, 1);
+                printk("KEY B PRESSED \n");
+            }
+            joy->buttons[5]++;
         }
-    } else {
-        if (joy->buttons[5] == 0) {
-            input_report_key(input, BTN_B, 1);
-            printk("KEY B PRESSED \n");
-        }
-        joy->buttons[5]++;
     }
-    if (!keyx) {
-        if (joy->buttons[6] > 0) {
-            input_report_key(input, BTN_X, 0);
-            joy->buttons[6] = 0;
-            printk("KEY X RELEASED \n");
+    if (keyx == keyx_old) {
+        if (!keyx) {
+            if (joy->buttons[6] > 0) {
+                input_report_key(input, BTN_X, 0);
+                joy->buttons[6] = 0;
+                printk("KEY X RELEASED \n");
+            }
+        } else {
+            if (joy->buttons[6] == 0) {
+                input_report_key(input, BTN_X, 1);
+                printk("KEY X PRESSED \n");
+            }
+            joy->buttons[6]++;
         }
-    } else {
-        if (joy->buttons[6] == 0) {
-            input_report_key(input, BTN_X, 1);
-            printk("KEY X PRESSED \n");
-        }
-        joy->buttons[6]++;
     }
-    if (!keyy) {
-        if (joy->buttons[7] > 0) {
-            input_report_key(input, BTN_Y, 0);
-            joy->buttons[7] = 0;
-            printk("KEY Y RELEASED \n");
+    if (keyy == keyy_old) {
+        if (!keyy) {
+            if (joy->buttons[7] > 0) {
+                input_report_key(input, BTN_Y, 0);
+                joy->buttons[7] = 0;
+                printk("KEY Y RELEASED \n");
+            }
+        } else {
+            if (joy->buttons[7] == 0) {
+                input_report_key(input, BTN_Y, 1);
+                printk("KEY Y PRESSED \n");
+            }
+            joy->buttons[7]++;
         }
-    } else {
-        if (joy->buttons[7] == 0) {
-            input_report_key(input, BTN_Y, 1);
-            printk("KEY Y PRESSED \n");
-        }
-        joy->buttons[7]++;
     }
-    if (!keyl) {
-        if (joy->buttons[8] > 0) {
-            input_report_key(input, BTN_TL, 0);
-            joy->buttons[8] = 0;
-            printk("KEY L RELEASED \n");
+    if (keyl == keyl_old) {
+        if (!keyl) {
+            if (joy->buttons[8] > 0) {
+                input_report_key(input, BTN_TL, 0);
+                joy->buttons[8] = 0;
+                printk("KEY L RELEASED \n");
+            }
+        } else {
+            if (joy->buttons[8] == 0) {
+                input_report_key(input, BTN_TL, 1);
+                printk("KEY L PRESSED \n");
+            }
+            joy->buttons[8]++;
         }
-    } else {
-        if (joy->buttons[8] == 0) {
-            input_report_key(input, BTN_TL, 1);
-            printk("KEY L PRESSED \n");
-        }
-        joy->buttons[8]++;
     }
-    if (!keyr) {
-        if (joy->buttons[9] > 0) {
-            input_report_key(input, BTN_TR, 0);
-            joy->buttons[9] = 0;
-            printk("KEY R RELEASED \n");
+    if (keyr == keyr_old) {
+        if (!keyr) {
+            if (joy->buttons[9] > 0) {
+                input_report_key(input, BTN_TR, 0);
+                joy->buttons[9] = 0;
+                printk("KEY R RELEASED \n");
+            }
+        } else {
+            if (joy->buttons[9] == 0) {
+                input_report_key(input, BTN_TR, 1);
+                printk("KEY R PRESSED \n");
+            }
+            joy->buttons[9]++;
         }
-    } else {
-        if (joy->buttons[9] == 0) {
-            input_report_key(input, BTN_TR, 1);
-            printk("KEY R PRESSED \n");
-        }
-        joy->buttons[9]++;
     }
-    if (!keyl2) {
-        if (joy->buttons[10] > 0) {
-            input_report_key(input, BTN_TL2, 0);
-            joy->buttons[10] = 0;
-            printk("KEY L2 RELEASED \n");
+    if (keyl2 == keyl2_old) {
+        if (!keyl2) {
+            if (joy->buttons[10] > 0) {
+                input_report_key(input, BTN_TL2, 0);
+                joy->buttons[10] = 0;
+                printk("KEY L2 RELEASED \n");
+            }
+        } else {
+            if (joy->buttons[10] == 0) {
+                input_report_key(input, BTN_TL2, 1);
+                printk("KEY L2 PRESSED \n");
+            }
+            joy->buttons[10]++;
         }
-    } else {
-        if (joy->buttons[10] == 0) {
-            input_report_key(input, BTN_TL2, 1);
-            printk("KEY L2 PRESSED \n");
-        }
-        joy->buttons[10]++;
     }
-    if (!keyr2) {
-        if (joy->buttons[11] > 0) {
-            input_report_key(input, BTN_TR2, 0);
-            joy->buttons[11] = 0;
-            printk("KEY R2 RELEASED \n");
+    if (keyr2 == keyr2_old) {
+        if (!keyr2) {
+            if (joy->buttons[11] > 0) {
+                input_report_key(input, BTN_TR2, 0);
+                joy->buttons[11] = 0;
+                printk("KEY R2 RELEASED \n");
+            }
+        } else {
+            if (joy->buttons[11] == 0) {
+                input_report_key(input, BTN_TR2, 1);
+                printk("KEY R2 PRESSED \n");
+            }
+            joy->buttons[11]++;
         }
-    } else {
-        if (joy->buttons[11] == 0) {
-            input_report_key(input, BTN_TR2, 1);
-            printk("KEY R2 PRESSED \n");
-        }
-        joy->buttons[11]++;
     }
+    keyl_old = keyl;
+    keyr_old = keyr;
+    keyl2_old = keyl2;
+    keyr2_old = keyr2;
+    keya_old = keya;
+    keyb_old = keyb;
+    keyx_old = keyx;
+    keyy_old = keyy;
 
 }
 
@@ -328,19 +339,18 @@ static ssize_t analog_write(struct device *dev, struct device_attribute *attr,
     return count;
 }
 
-static ssize_t values_read(struct device *dev, struct device_attribute *attr, const char *buf){
-    return sprintf(buf,"%d %d %d %d", analogvalues[0], analogvalues[1], analogvalues[2], analogvalues[3]);
+static ssize_t values_read(struct device *dev, struct device_attribute *attr,
+        const char *buf) {
+    return sprintf(buf, "%d %d %d %d", analogvalues[0], analogvalues[1],
+            analogvalues[2], analogvalues[3]);
 }
 
 static DEVICE_ATTR( analog, S_IRWXUGO, analog_read, analog_write);
 
 static DEVICE_ATTR( values, S_IRUGO, values_read, NULL);
 
-static struct attribute *joy_attr[] = {
-        &dev_attr_analog.attr,
-        &dev_attr_values.attr,
-        NULL
-};
+static struct attribute *joy_attr[] = { &dev_attr_analog.attr,
+        &dev_attr_values.attr, NULL };
 static struct attribute_group joy_attr_group =
         { .name = NULL, .attrs = joy_attr, };
 
@@ -360,7 +370,7 @@ static void update_work_func(struct work_struct *work) {
 static void joy_timer_sr(unsigned long data) {
     struct joy *joy_data = (struct joy *) data;
     schedule_work(&(joy_data->work_update));
-    mod_timer(&joy_data->timer, jiffies + msecs_to_jiffies(5));
+    mod_timer(&joy_data->timer, jiffies + msecs_to_jiffies(8));
 }
 
 static int adckpd_config_open(struct inode *inode, struct file *file) {
@@ -418,19 +428,10 @@ static int __devinit joy_probe(struct platform_device *pdev)
 
     platform_set_drvdata(pdev, joy);
     joy->input = input_dev;
-    /*for (i=0; i<SARADC_CHAN_NUM; i++) {
-        joy->cur_keycode[i] = 0;
-        joy->cur_keycode_status[i] = 0;
-        joy->tmp_code[i] = 0;
-        joy->count[i] = 0;
-    }*/
 
     for(i=0; i<10;i++){
         joy->buttons[i]=0;
-    }/*
-    for(i=0;i<joy->chan_num;i++){
-        joy->analogvalues[i]=0;
-    }*/
+    }
 
     INIT_WORK(&(joy->work_update), update_work_func);
 
@@ -450,12 +451,6 @@ static int __devinit joy_probe(struct platform_device *pdev)
     set_bit(KEY_LEFT, input_dev->keybit);
     set_bit(KEY_RIGHT,
         input_dev->keybit);
-    set_bit(KEY_I, input_dev->keybit);
-    set_bit(KEY_J,
-        input_dev->keybit);
-    set_bit(KEY_K, input_dev->keybit);
-    set_bit(KEY_L,
-        input_dev->keybit);
     set_bit(BTN_A, input_dev->keybit);
     set_bit(BTN_B,
         input_dev->keybit);
@@ -474,11 +469,10 @@ static int __devinit joy_probe(struct platform_device *pdev)
         input_dev->evbit);
 
     set_bit(EV_ABS, input_dev->evbit);
-input_set_abs_params(input_dev, ABS_X, 0, 1023, 5, 0);
-input_set_abs_params(input_dev, ABS_Y, 0, 1023, 5, 0);
-input_set_abs_params(input_dev, ABS_RX, 0, 1023, 5, 0);
-input_set_abs_params(input_dev, ABS_RY, 0, 1023, 5, 0);
-
+input_set_abs_params(input_dev, ABS_X, -512, 511, 5, 20);
+input_set_abs_params(input_dev, ABS_Y, -512, 511, 5, 20);
+input_set_abs_params(input_dev, ABS_RX, -512, 511, 5, 20);
+input_set_abs_params(input_dev, ABS_RY, -512, 511, 5, 20);
 
 joy->chan_num = 4;
 joy->chan[0] = CHAN_0;
@@ -486,22 +480,6 @@ joy->chan[1] = CHAN_1;
 joy->chan[2] = CHAN_2; //LEFT, RIGHT
 joy->chan[3] = CHAN_3;//UP, DOWN
 joy->chan[4] = CHAN_4;//KEY_SPACE,KEY_ENTER,KEY_VOLUMEDOWN,KEY_VOLUMEUP
-
-joy->jstickkeys[0] = KEY_I;
-joy->jstickkeys[1] = KEY_K;
-joy->jstickkeys[2] = KEY_L;
-joy->jstickkeys[3] = KEY_J;
-joy->jstickkeys[4] = KEY_RIGHT;
-joy->jstickkeys[5] = KEY_LEFT;
-joy->jstickkeys[6] = KEY_DOWN;
-joy->jstickkeys[7] = KEY_UP;
-
-/*
- joy->jstickaxis[0] = ABS_RY;
- joy->jstickaxis[1] = ABS_RX;
- joy->jstickaxis[2] = ABS_X;
- joy->jstickaxis[3] = ABS_Y;
- */
 
 sprintf(phys, "input/ts");
 input_dev->name = "adc joystick";
